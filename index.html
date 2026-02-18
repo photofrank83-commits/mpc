@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MPC Plastering & General Building | Huddersfield, West Yorkshire</title>
+  <meta name="description" content="MPC Plastering & General Building in Huddersfield. Operating across West Yorkshire. Plastering, rendering, refurbishments, conversions, kitchens, bathrooms, paving and more. Free quotes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* BLUE / BLACK / WHITE */
+      --bg:#ffffff;
+      --ink:#0b1220;              /* deep navy-black */
+      --muted:#4b5563;
+      --muted2:#6b7280;
+      --line:#e5e7eb;
+      --surface:#f7f9fc;
+
+      --blue:#1d4ed8;             /* primary */
+      --blue-dark:#163fb3;
+
+      --max:1180px;
+      --pad:clamp(16px, 3vw, 28px);
+
+      --r:14px;
+      --r2:18px;
+
+      --h1:clamp(34px, 4.8vw, 56px);
+      --h2:clamp(22px, 3.2vw, 34px);
+      --p:16px;
+
+      --shadow: 0 10px 30px rgba(11,18,32,.10);
+      --shadow2: 0 12px 32px rgba(11,18,32,.12);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .container{ max-width: var(--max); margin:0 auto; padding:0 var(--pad); }
+
+    /* =======================
+       HEADER
+       ======================= */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: var(--ink);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .nav{
+      height: 86px; /* slightly taller to comfortably fit a bigger logo */
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+
+    /* Larger logo (for small text) */
+    .logo{
+      display:flex;
+      align-items:center;
+      min-width: 340px;
+    }
+    .logo-img{
+      height: 72px;          /* BIGGER */
+      width: auto;
+      max-width: 420px;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
+    }
+
+    /* Desktop nav */
+    nav.desktop ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+    nav.desktop a{
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background .15s ease, color .15s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    nav.desktop a:hover{
+      background: rgba(255,255,255,.10);
+      color:#fff;
+    }
+
+    /* CTAs */
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 280px;
+      justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 11px 13px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing:.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color:#fff;
+      transition: transform .12s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.12); }
+    .btn.primary{
+      background: var(--blue);
+      border-color: rgba(255,255,255,.18);
+      color:#fff;
+    }
+    .btn.primary:hover{ background: var(--blue-dark); }
+
+    /* Mobile */
+    .burger{
+      display:none;
+      width:44px;height:44px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color:#fff;
+      cursor:pointer;
+    }
+    .burger svg{ width:20px;height:20px; }
+    .mobile-panel{
+      display:none;
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding: 10px var(--pad) 14px;
+    }
+    .mobile-panel a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 12px;
+      color:#fff;
+      font-weight: 900;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      opacity:.92;
+    }
+    .mobile-panel a:hover{ background: rgba(255,255,255,.10); opacity:1; }
+    header[data-open="true"] .mobile-panel{ display:block; }
+
+    @media (max-width: 1100px){
+      .logo{ min-width: 280px; }
+      .logo-img{ height: 64px; max-width: 360px; }
+      .nav-cta{ min-width: 240px; }
+    }
+    @media (max-width: 980px){
+      nav.desktop, .nav-cta{ display:none; }
+      .burger{ display:inline-flex; align-items:center; justify-content:center; }
+      .logo{ min-width:auto; }
+      .logo-img{ height: 58px; max-width: 280px; }
+      .nav{ height: 82px; }
+    }
+
+    /* =======================
+       HERO
+       ======================= */
+    .hero{
+      position:relative;
+      min-height: 560px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      color:#fff;
+      background: var(--ink);
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        url("https://images.unsplash.com/photo-1768839725085-829e6ac7ac26?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: contrast(1.05) saturate(1.02);
+      z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(11,18,32,.60), rgba(11,18,32,.80)),
+        radial-gradient(900px 500px at 20% 15%, rgba(29,78,216,.30), transparent 60%);
+      z-index:1;
+    }
+    .hero .content{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding: 70px 0;
+      text-align:center;
+    }
+    .kicker{
+      font-size: 12px;
+      letter-spacing:.22em;
+      text-transform: uppercase;
+      opacity:.92;
+      margin-bottom: 10px;
+    }
+    .hero h1{
+      margin:0 0 14px;
+      font-size: var(--h1);
+      line-height: 1.05;
+      letter-spacing:-.02em;
+      font-weight: 950;
+    }
+    .hero p{
+      margin: 0 auto 22px;
+      max-width: 74ch;
+      color: rgba(255,255,255,.88);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .hero-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--blue);
+      color:#fff;
+      font-weight: 950;
+      letter-spacing:.04em;
+      text-transform: uppercase;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.16);
+      transition: transform .12s ease, background .15s ease;
+    }
+    .hero-cta:hover{ background: var(--blue-dark); transform: translateY(-1px); }
+    .hero-cta.secondary{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+    }
+    .hero-cta.secondary:hover{ background: rgba(255,255,255,.16); }
+
+    .hero-badges{
+      margin-top: 22px;
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .badge{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    /* =======================
+       SECTIONS
+       ======================= */
+    .section{
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .section.alt{ background: var(--surface); }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: var(--h2);
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .section-head p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 74ch;
+      line-height: 1.75;
+      font-size: var(--p);
+    }
+
+    /* About layout (big left title + right copy) */
+    .about{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      align-items:start;
+    }
+    .about .big{
+      padding-top: 6px;
+    }
+    .about .big .small{
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .about .big h2{
+      margin:0;
+      font-size: clamp(34px, 4.6vw, 52px);
+      line-height: 1.05;
+      letter-spacing:-.03em;
+      font-weight: 950;
+      color: var(--blue);
+      text-transform: uppercase;
+    }
+    .about .big h2 .subline{
+      display:block;
+      font-size: clamp(18px, 2.2vw, 24px); /* smaller line so it fits */
+      font-weight: 900;
+      letter-spacing: .02em;
+      margin-top: 10px;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .about .copy p{
+      margin:0 0 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: var(--p);
+    }
+
+    .ticks{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 14px;
+    }
+    .tick{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: var(--ink);
+      font-weight: 750;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .tick svg{ width:18px; height:18px; color: var(--blue); }
+
+    @media (max-width: 980px){
+      .about{ grid-template-columns: 1fr; }
+      .ticks{ grid-template-columns: 1fr; }
+      .about .big h2{ font-size: 44px; }
+      .about .big h2 .subline{ font-size: 20px; }
+    }
+
+    /* Services cards */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card{
+      background:#fff;
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      overflow:hidden;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .card:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); }
+    .card .img{
+      aspect-ratio: 16/10;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .card .body{ padding: 18px; }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing:-.01em;
+      text-transform: uppercase;
+    }
+    .card p{
+      margin:0 0 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 14.5px;
+    }
+    .learn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: var(--blue);
+      color:#fff;
+      font-weight: 950;
+      font-size: 13px;
+      letter-spacing:.04em;
+      text-transform: uppercase;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(11,18,32,.06);
+      transition: background .15s ease, transform .12s ease;
+    }
+    .learn:hover{ background: var(--blue-dark); transform: translateY(-1px); }
+    .learn svg{ width:16px; height:16px; }
+
+    @media (max-width: 980px){
+      .cards{ grid-template-columns: 1fr; }
+    }
+
+    /* CTA strip image */
+    .cta-strip{
+      position:relative;
+      min-height: 240px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      color:#fff;
+      background: var(--ink);
+    }
+    .cta-strip::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        url("https://images.unsplash.com/photo-1733431774078-692252a6605e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0") center/cover no-repeat;
+      filter: contrast(1.05);
+      transform: scale(1.02);
+      z-index:0;
+    }
+    .cta-strip::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, rgba(11,18,32,.84), rgba(11,18,32,.56));
+      z-index:1;
+    }
+    .cta-strip .inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding: 54px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta-strip h2{
+      margin:0;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 950;
+      letter-spacing:-.02em;
+    }
+    .cta-strip p{
+      margin: 6px 0 0;
+      max-width: 62ch;
+      color: rgba(255,255,255,.88);
+      line-height: 1.75;
+    }
+
+    /* Testimonials */
+    .testimonials{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .quote{
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      padding: 18px;
+      background: #fff;
+    }
+    .quote p{
+      margin:0 0 12px;
+      color: var(--ink);
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .quote .by{
+      color: var(--muted2);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    @media (max-width: 980px){
+      .testimonials{ grid-template-columns: 1fr; }
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:start;
+    }
+    .panel{
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      padding: 18px;
+      background:#fff;
+    }
+    label{
+      display:block;
+      font-size: 13px;
+      color: var(--muted2);
+      font-weight: 800;
+      margin: 0 0 6px;
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background:#fff;
+      font-size: 14px;
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    .form-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 680px){
+      .form-grid{ grid-template-columns: 1fr; }
+    }
+    .submit{
+      width:100%;
+      margin-top: 12px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: none;
+      background: var(--blue);
+      color:#fff;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing:.04em;
+      cursor:pointer;
+      transition: background .15s ease, transform .12s ease;
+    }
+    .submit:hover{ background: var(--blue-dark); transform: translateY(-1px); }
+    @media (max-width: 980px){
+      .contact{ grid-template-columns: 1fr; }
+    }
+
+    /* =======================
+       FOOTER (MORE SUBSTANTIAL)
+       ======================= */
+    footer{
+      background: var(--ink);
+      color: rgba(255,255,255,.80);
+      padding: 54px 0 26px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+      gap: 22px;
+      align-items:start;
+    }
+    .footer-brand{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .footer-logo{
+      max-width: 320px;
+      height: auto;
+      opacity: .98;
+    }
+    .footer-brand p{
+      margin:0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      font-size: 13.5px;
+    }
+    .footer-title{
+      margin: 6px 0 10px;
+      font-weight: 900;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color:#fff;
+    }
+    .footer-links a{
+      display:block;
+      padding: 7px 0;
+      color: rgba(255,255,255,.72);
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+    .footer-links a:hover{ color:#fff; }
+    .footer-card{
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.06);
+    }
+    .footer-card p{
+      margin:0;
+      color: rgba(255,255,255,.78);
+      line-height: 1.85;
+      font-size: 13.5px;
+    }
+    .footer-cta{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+    .footer-cta a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing:.04em;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .footer-cta a.primary{
+      background: var(--blue);
+      border-color: rgba(255,255,255,.16);
+    }
+    .footer-cta a:hover{ background: rgba(255,255,255,.12); }
+    .footer-cta a.primary:hover{ background: var(--blue-dark); }
+
+    .footer-bottom{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items:center;
+      color: rgba(255,255,255,.60);
+      font-size: 12.5px;
+    }
+    @media (max-width: 980px){
+      .footer-grid{ grid-template-columns: 1fr; }
+      .footer-logo{ max-width: 280px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER (NO DROPDOWN) -->
+  <header id="siteHeader" data-open="false">
+    <div class="container">
+      <div class="nav">
+        <a class="logo" href="#top" aria-label="MPC home">
+          <img
+            class="logo-img"
+            src="https://image2url.com/r2/default/images/1771452001520-480b232f-73f4-48da-b510-f88d24afec21.png"
+            alt="MPC Plastering & General Building"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+
+        <nav class="desktop" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn" href="tel:+44XXXXXXXXXX">Call</a>
+          <a class="btn primary" href="#contact">Get a Quote</a>
+        </div>
+
+        <button class="burger" id="burger" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+44XXXXXXXXXX">Call: 07XXX XXXXXX</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero" aria-label="Hero">
+      <div class="content">
+        <div class="container">
+          <div class="kicker">Huddersfield • Operating across West Yorkshire</div>
+          <h1>MPC Plastering &amp; General Building</h1>
+          <p>
+            Clean finishes, solid workmanship, and clear communication.
+            Plastering, rendering (including silicone systems), refurbishments, conversions,
+            kitchens, bathrooms, paving and more.
+          </p>
+
+          <div class="hero-actions">
+            <a class="hero-cta" href="#contact">Get in touch today</a>
+            <a class="hero-cta secondary" href="#services">View services</a>
+          </div>
+
+          <div class="hero-badges" aria-label="Trust badges">
+            <span class="badge">Free Quotes</span>
+            <span class="badge">Guaranteed Workmanship</span>
+            <span class="badge">Tidy &amp; Reliable</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / WELCOME -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about">
+          <div class="big">
+            <div class="small">Welcome to</div>
+            <h2>
+              MPC
+              <span class="subline">Plastering &amp; General Building</span>
+            </h2>
+          </div>
+
+          <div class="copy">
+            <p>
+              Based in <strong>Huddersfield</strong>, MPC Plastering &amp; General Building provides professional building and finishing work
+              across <strong>West Yorkshire</strong>. From single-room repairs to full property upgrades, we keep it simple:
+              tidy work, reliable timelines, and a finish you can trust.
+            </p>
+            <p>
+              We cover plastering, rendering (including silicone render), conversions, refurbishments, bathrooms,
+              kitchens, paving, driveways and structural alterations. If you’re unsure what’s needed, we’ll advise and quote clearly.
+            </p>
+
+            <div class="ticks" aria-label="Key points">
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 7 10.5 16.5 4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Free, no-obligation quotes
+              </div>
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 7 10.5 16.5 4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Guaranteed workmanship
+              </div>
+              <div class="tick">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 7 10.5 16.5 4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Clean &amp; respectful service
+              </div>
+            </div>
+
+            <div style="margin-top:18px;">
+              <a class="learn" href="#contact">
+                Request a free quote
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section alt" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Services</h2>
+            <p>Clear, professional service categories — tailored for homeowners and commercial spaces across West Yorkshire.</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="img" style="background-image:url('https://images.unsplash.com/photo-1768839725085-829e6ac7ac26?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
+            <div class="body">
+              <h3>Plastering</h3>
+              <p>Skimming, patch repairs, ceilings, dry lining and prep work for smooth finishes.</p>
+              <a class="learn" href="#contact">Enquire
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="img" style="background-image:url('https://images.unsplash.com/photo-1733431774078-692252a6605e?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
+            <div class="body">
+              <h3>Rendering</h3>
+              <p>Traditional render and silicone systems for long-lasting exterior protection.</p>
+              <a class="learn" href="#contact">Enquire
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="img" style="background-image:url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="body">
+              <h3>Refurbishments</h3>
+              <p>Room refreshes to full property upgrades with clean detailing and tidy handover.</p>
+              <a class="learn" href="#contact">Enquire
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="img" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="body">
+              <h3>Conversions</h3>
+              <p>Garage and loft conversions designed to add useful space and improve layout.</p>
+              <a class="learn" href="#contact">Enquire
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="img" style="background-image:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="body">
+              <h3>Kitchens & Bathrooms</h3>
+              <p>Practical upgrades with planned sequencing and quality finishes throughout.</p>
+              <a class="learn" href="#contact">Enquire
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="img" style="background-image:url('https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="body">
+              <h3>Paving & Driveways</h3>
+              <p>Hard-wearing external work built to look sharp and perform day to day.</p>
+              <a class="learn" href="#contact">Enquire
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip" aria-label="Call to action">
+      <div class="container">
+        <div class="inner">
+          <div>
+            <h2>Get a free quote</h2>
+            <p>Based in Huddersfield and operating across West Yorkshire — tell us what you need and we’ll reply with clear next steps.</p>
+          </div>
+          <a class="hero-cta" href="#contact" style="border-radius:12px;">Contact us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Testimonials</h2>
+            <p>Replace these with your real reviews for maximum trust.</p>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <div class="quote">
+            <p>“Excellent finish, turned up when they said they would, and kept everything tidy throughout.”</p>
+            <div class="by">Verified customer • Huddersfield</div>
+          </div>
+          <div class="quote">
+            <p>“Great communication and a professional result. The exterior looks brand new.”</p>
+            <div class="by">Verified customer • West Yorkshire</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt" id="contact" style="border-bottom:none;">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>Tell us what you need — we’ll respond with a straightforward quote and availability.</p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="panel">
+            <form action="#" method="post">
+              <div class="form-grid">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required>
+                </div>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="07XXX XXXXXX" required>
+                </div>
+              </div>
+
+              <div class="form-grid" style="margin-top:12px;">
+                <div>
+                  <label for="email">Email (optional)</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com">
+                </div>
+                <div>
+                  <label for="service">Service</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select…</option>
+                    <option>Plastering</option>
+                    <option>Rendering / Silicone Render</option>
+                    <option>Refurbishment</option>
+                    <option>Conversion</option>
+                    <option>Kitchens / Bathrooms</option>
+                    <option>Paving / Driveways</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <label for="msg">Project details</label>
+                <textarea id="msg" name="msg" placeholder="What needs doing? Where is the property in West Yorkshire? Any timescales?" required></textarea>
+              </div>
+
+              <button class="submit" type="submit">Send enquiry</button>
+
+              <p style="margin:10px 0 0; font-size:12.5px; color: var(--muted2);">
+                Template form — connect to your form plugin / email handler.
+              </p>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin:0 0 10px; font-size:18px; font-weight:950;">Direct contact</h3>
+            <p style="margin:0; line-height:1.85; color: var(--muted);">
+              <strong style="color:var(--ink);">Phone:</strong> <a href="tel:+44XXXXXXXXXX">07XXX XXXXXX</a><br>
+              <strong style="color:var(--ink);">Email:</strong> <a href="mailto:hello@mpc-example.co.uk">hello@mpc-example.co.uk</a><br>
+              <strong style="color:var(--ink);">Base:</strong> Huddersfield<br>
+              <strong style="color:var(--ink);">Coverage:</strong> West Yorkshire
+            </p>
+
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="learn" href="tel:+44XXXXXXXXXX">Call now
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="learn" href="#services" style="background:#fff; color:var(--ink); border:1px solid var(--line);">
+                View services
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (SUBSTANTIAL) -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img class="footer-logo" src="https://image2url.com/r2/default/images/1771452001520-480b232f-73f4-48da-b510-f88d24afec21.png" alt="MPC Plastering & General Building logo" loading="lazy" decoding="async" />
+            <p>
+              Based in <strong>Huddersfield</strong>, operating across <strong>West Yorkshire</strong>.
+              Professional plastering, rendering and general building services with a tidy finish and clear communication.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-title">Navigation</div>
+            <div class="footer-links">
+              <a href="#top">Home</a>
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#testimonials">Testimonials</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Services</div>
+            <div class="footer-links">
+              <a href="#services">Plastering</a>
+              <a href="#services">Rendering & Silicone Render</a>
+              <a href="#services">Refurbishments</a>
+              <a href="#services">Conversions</a>
+              <a href="#services">Kitchens & Bathrooms</a>
+              <a href="#services">Paving & Driveways</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Get a quote</div>
+            <div class="footer-card">
+              <p>
+                <strong style="color:#fff;">Huddersfield • West Yorkshire</strong><br/>
+                Phone: <a href="tel:+44XXXXXXXXXX" style="color:#fff;">07XXX XXXXXX</a><br/>
+                Email: <a href="mailto:hello@mpc-example.co.uk" style="color:#fff;">hello@mpc-example.co.uk</a><br/>
+                <span style="color:rgba(255,255,255,.70);">Free, no-obligation quotes • Guaranteed workmanship</span>
+              </p>
+
+              <div class="footer-cta">
+                <a class="primary" href="#contact">Request a quote</a>
+                <a href="tel:+44XXXXXXXXXX">Call now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> MPC Plastering &amp; General Building</span>
+          <span>
+            <a href="#">Privacy Policy</a> • <a href="#">Cookie Policy</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    const header = document.getElementById('siteHeader');
+    const burger = document.getElementById('burger');
+    burger?.addEventListener('click', () => {
+      const open = header.getAttribute('data-open') === 'true';
+      header.setAttribute('data-open', open ? 'false' : 'true');
+      burger.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+    });
+    document.querySelectorAll('#mobilePanel a').forEach(a=>{
+      a.addEventListener('click', ()=> header.setAttribute('data-open','false'));
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
