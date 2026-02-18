@@ -61,21 +61,20 @@
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
     .nav{
-      height: 86px; /* slightly taller to comfortably fit a bigger logo */
+      height: 86px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 14px;
     }
 
-    /* Larger logo (for small text) */
     .logo{
       display:flex;
       align-items:center;
       min-width: 340px;
     }
     .logo-img{
-      height: 72px;          /* BIGGER */
+      height: 72px;
       width: auto;
       max-width: 420px;
       object-fit: contain;
@@ -144,7 +143,7 @@
     }
     .btn.primary:hover{ background: var(--blue-dark); }
 
-    /* Mobile */
+    /* Mobile trigger */
     .burger{
       display:none;
       width:44px;height:44px;
@@ -155,24 +154,113 @@
       cursor:pointer;
     }
     .burger svg{ width:20px;height:20px; }
+
+    /* =======================
+       MOBILE DROPDOWN MENU (PRO)
+       ======================= */
     .mobile-panel{
       display:none;
-      background: var(--ink);
+      background: rgba(11,18,32,.98);
       border-top: 1px solid rgba(255,255,255,.10);
-      padding: 10px var(--pad) 14px;
+      padding: 12px var(--pad) 16px;
     }
-    .mobile-panel a{
-      display:block;
-      padding: 12px 12px;
-      border-radius: 12px;
+    header[data-open="true"] .mobile-panel{ display:block; }
+
+    .mobile-menu{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .m-link,
+    .m-toggle{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       color:#fff;
       font-weight: 900;
       letter-spacing:.06em;
       text-transform: uppercase;
-      opacity:.92;
+      font-size: 13px;
+      cursor:pointer;
+      transition: background .15s ease, border-color .15s ease, transform .12s ease;
     }
-    .mobile-panel a:hover{ background: rgba(255,255,255,.10); opacity:1; }
-    header[data-open="true"] .mobile-panel{ display:block; }
+    .m-link:hover,
+    .m-toggle:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-1px);
+    }
+
+    .m-toggle .chev{
+      width:18px;height:18px;
+      opacity:.9;
+      transition: transform .18s ease;
+      flex: 0 0 auto;
+    }
+
+    /* Submenu panel */
+    .m-sub{
+      display:none;
+      margin-top: -4px;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .m-sub a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 12px;
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      text-transform:none;
+      letter-spacing:0;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+    .m-sub a:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.10);
+      color:#fff;
+    }
+
+    .m-item[data-expanded="true"] .m-sub{ display:block; }
+    .m-item[data-expanded="true"] .m-toggle .chev{ transform: rotate(180deg); }
+
+    .m-cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+    .m-cta a{
+      flex: 1 1 160px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 14px 14px;
+      border-radius: 14px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing:.05em;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+    }
+    .m-cta a.primary{
+      background: var(--blue);
+      border-color: rgba(255,255,255,.14);
+    }
+    .m-cta a:hover{ background: rgba(255,255,255,.10); }
+    .m-cta a.primary:hover{ background: var(--blue-dark); }
 
     @media (max-width: 1100px){
       .logo{ min-width: 280px; }
@@ -326,7 +414,6 @@
       font-size: var(--p);
     }
 
-    /* About layout (big left title + right copy) */
     .about{
       display:grid;
       grid-template-columns: .95fr 1.05fr;
@@ -353,7 +440,7 @@
     }
     .about .big h2 .subline{
       display:block;
-      font-size: clamp(18px, 2.2vw, 24px); /* smaller line so it fits */
+      font-size: clamp(18px, 2.2vw, 24px);
       font-weight: 900;
       letter-spacing: .02em;
       margin-top: 10px;
@@ -392,7 +479,6 @@
       .about .big h2 .subline{ font-size: 20px; }
     }
 
-    /* Services cards */
     .cards{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -448,7 +534,6 @@
       .cards{ grid-template-columns: 1fr; }
     }
 
-    /* CTA strip image */
     .cta-strip{
       position:relative;
       min-height: 240px;
@@ -499,7 +584,6 @@
       line-height: 1.75;
     }
 
-    /* Testimonials */
     .testimonials{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -526,7 +610,6 @@
       .testimonials{ grid-template-columns: 1fr; }
     }
 
-    /* Contact */
     .contact{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -583,9 +666,7 @@
       .contact{ grid-template-columns: 1fr; }
     }
 
-    /* =======================
-       FOOTER (MORE SUBSTANTIAL)
-       ======================= */
+    /* FOOTER */
     footer{
       background: var(--ink);
       color: rgba(255,255,255,.80);
@@ -690,7 +771,7 @@
 
 <body>
 
-  <!-- HEADER (NO DROPDOWN) -->
+  <!-- HEADER (MOBILE DROPDOWN MENU) -->
   <header id="siteHeader" data-open="false">
     <div class="container">
       <div class="nav">
@@ -727,13 +808,39 @@
       </div>
     </div>
 
+    <!-- Mobile dropdown panel -->
     <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
-      <a href="#top">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-      <a href="tel:+44XXXXXXXXXX">Call: 07XXX XXXXXX</a>
+      <div class="mobile-menu">
+        <a class="m-link" href="#top">Home</a>
+        <a class="m-link" href="#about">About</a>
+
+        <!-- Professional Services dropdown -->
+        <div class="m-item" id="mServices" data-expanded="false">
+          <button class="m-toggle" type="button" aria-expanded="false" aria-controls="mServicesSub">
+            <span>Services</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="m-sub" id="mServicesSub">
+            <a href="#services" data-close-mobile>Plastering</a>
+            <a href="#services" data-close-mobile>Rendering & Silicone Render</a>
+            <a href="#services" data-close-mobile>Refurbishments</a>
+            <a href="#services" data-close-mobile>Conversions</a>
+            <a href="#services" data-close-mobile>Kitchens & Bathrooms</a>
+            <a href="#services" data-close-mobile>Paving & Driveways</a>
+          </div>
+        </div>
+
+        <a class="m-link" href="#testimonials">Testimonials</a>
+        <a class="m-link" href="#contact">Contact</a>
+
+        <div class="m-cta">
+          <a class="primary" href="#contact" data-close-mobile>Get a Quote</a>
+          <a href="tel:+44XXXXXXXXXX">Call</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -1033,7 +1140,7 @@
       </div>
     </section>
 
-    <!-- FOOTER (SUBSTANTIAL) -->
+    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-grid">
@@ -1100,13 +1207,27 @@
     // Mobile menu toggle
     const header = document.getElementById('siteHeader');
     const burger = document.getElementById('burger');
+    const mobilePanel = document.getElementById('mobilePanel');
+
     burger?.addEventListener('click', () => {
       const open = header.getAttribute('data-open') === 'true';
       header.setAttribute('data-open', open ? 'false' : 'true');
       burger.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
     });
-    document.querySelectorAll('#mobilePanel a').forEach(a=>{
-      a.addEventListener('click', ()=> header.setAttribute('data-open','false'));
+
+    // Close mobile menu when tapping links that should close
+    mobilePanel?.querySelectorAll('[data-close-mobile], .m-link').forEach(el => {
+      el.addEventListener('click', () => header.setAttribute('data-open','false'));
+    });
+
+    // Mobile "Services" dropdown (professional accordion)
+    const mServices = document.getElementById('mServices');
+    const mToggle = mServices?.querySelector('.m-toggle');
+
+    mToggle?.addEventListener('click', () => {
+      const expanded = mServices.getAttribute('data-expanded') === 'true';
+      mServices.setAttribute('data-expanded', expanded ? 'false' : 'true');
+      mToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     });
 
     // Footer year
