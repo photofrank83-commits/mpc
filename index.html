@@ -158,13 +158,42 @@
     /* =======================
        MOBILE DROPDOWN MENU (PRO)
        ======================= */
-    .mobile-panel{
-      display:none;
-      background: rgba(11,18,32,.98);
-      border-top: 1px solid rgba(255,255,255,.10);
-      padding: 12px var(--pad) 16px;
-    }
-    header[data-open="true"] .mobile-panel{ display:block; }
+    
+/* MOBILE DROPDOWN MENU (OVERLAYS CONTENT - DOES NOT PUSH PAGE) */
+.mobile-panel{
+  position: absolute;             /* key: remove from document flow */
+  left: 0;
+  right: 0;
+  top: 100%;                      /* sits directly under header */
+  display: none;
+  background: rgba(11,18,32,.98);
+  border-top: 1px solid rgba(255,255,255,.10);
+  padding: 12px var(--pad) 16px;
+  z-index: 999;                   /* ensure it's above page content */
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+
+/* show when header is open */
+header[data-open="true"] .mobile-panel{ display:block; }
+
+/* prevent header from expanding */
+header{ position: sticky; top:0; z-index: 60; }
+
+    /* Backdrop overlay */
+.nav-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease;
+  z-index: 50; /* below header (60) but above page */
+}
+header[data-open="true"] ~ .nav-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
     .mobile-menu{
       display:flex;
@@ -844,6 +873,8 @@
     </div>
   </header>
 
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
   <!-- HERO -->
   <main id="top">
     <section class="hero" aria-label="Hero">
@@ -1204,6 +1235,14 @@
   </main>
 
   <script>
+
+    const navBackdrop = document.getElementById('navBackdrop');
+
+navBackdrop?.addEventListener('click', () => {
+  header.setAttribute('data-open','false');
+  burger.setAttribute('aria-label','Open menu');
+});
+
     // Mobile menu toggle
     const header = document.getElementById('siteHeader');
     const burger = document.getElementById('burger');
